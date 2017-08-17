@@ -1,0 +1,27 @@
+<h1>Prueba</h1>
+
+
+<div id="projects">
+    <%= collection_select(:project, :name, @projects, :id, :name, prompt: 'Seleciona
+    proyecto') %>
+</div>
+
+
+<div id="activities">
+	
+
+</div>
+
+
+
+<script type="text/javascript">
+   $(document).ready(function(){
+        $('#project_name').on('change', function() {
+          $.ajax({
+             url: "<%= activities_options_path %>",
+             type: "POST",
+             data: { project_id: $(this).val() }
+          });
+       });
+    });
+</script>

@@ -1,17 +1,9 @@
 class SelectController < ApplicationController
-
-  def index
-   @projects = Project.all
-   @activities = Activity.all
-  end
-
-  def show
-
-  end
-
   def new
-    
+   @projects = Project.all
   end
 
-
+  def options
+    @activities = Activity.where(project_id: params[:project_id])
+  end
 end
